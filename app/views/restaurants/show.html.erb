@@ -1,0 +1,46 @@
+<h1><%= @restaurant.restaurant_name %></h1>
+
+<p><%= @restaurant.address %></p>
+
+<p><%= @restaurant.restaurant_type %></p>
+<ul>
+  <li><%= link_to "Edit", edit_restaurant_path(@restaurant) %></li>
+  <li><%= link_to "Destroy", restaurant_path(@restaurant), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+<table class="table w-100">
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delivery Address</th>
+            <th>Destroy</th>
+        </tr>
+        <% @restaurantorders.each do |r| %>
+            <tr>
+                <td>
+                  <%= link_to r.item_name, r %>
+                </td>
+                <td>
+                  <%= r.quantity %>
+                </td>
+                <td>
+                  <%= r.price %>
+                </td>
+                <td>
+                  <%= r.delivery_address %>
+                </td>
+                <td>
+                  <%= link_to "Destroy", order_path(r), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+

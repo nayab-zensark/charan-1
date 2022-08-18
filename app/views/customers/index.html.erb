@@ -1,0 +1,40 @@
+<h1>List of all customers</h1>
+
+<table class="table w-100">
+        <tr>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Destroy</th>
+        </tr>
+        <% @customers.each do |customer| %>
+            <tr>
+                <td>
+                  <%= link_to customer.name, customer %>
+                </td>
+                <td>
+                  <%= customer.mobile_number %>
+                </td>
+                <td>
+                  <%= customer.email %>
+                </td>
+                <td>
+                  <%= customer.address %>
+                </td>
+                <td>
+                  <%= link_to "Destroy", customer_path(customer), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+
+
+<br/>
+<br/>
+<div>
+<%= link_to "Add customer", new_customer_path %>
+</div>

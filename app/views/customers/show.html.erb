@@ -1,0 +1,49 @@
+<h1><%= @customer.name %></h1>
+
+<p><%= @customer.mobile_number %></p>
+
+<p><%= @customer.email %></p>
+
+<p><%= @customer.address %></p>
+
+
+<ul>
+  <li><%= link_to "Edit", edit_customer_path(@customer) %></li>
+  <li><%= link_to "Destroy", customer_path(@customer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+<table class="table w-100">
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delivery Address</th>
+            <th>Destroy</th>
+        </tr>
+        <% @customerorders.each do |c| %>
+            <tr>
+                <td>
+                  <%= link_to c.item_name, c %>
+                </td>
+                <td>
+                  <%= c.quantity %>
+                </td>
+                <td>
+                  <%= c.price %>
+                </td>
+                <td>
+                  <%= c.delivery_address %>
+                </td>
+                <td>
+                  <%= link_to "Destroy", order_path(c), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+                </td>
+            </tr>
+            <% end %>
+        </table>

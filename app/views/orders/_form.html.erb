@@ -1,0 +1,47 @@
+<%= form_with model: @order do |form| %>
+    <div>
+      <%= form.label :item_name %><br>
+      <%= form.text_field :item_name %><br>
+      <% @order.errors.full_messages_for(:item_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :quantity %><br>
+      <%= form.text_field :quantity %><br>
+      <% @order.errors.full_messages_for(:quantity).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :price %><br>
+      <%= form.text_field :price %><br>
+      <% @order.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :delivery_address %><br>
+      <%= form.text_field :delivery_address %><br>
+      <% @order.errors.full_messages_for(:delivery_address).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+    <%= form.label :restaurant_id %><br />
+    <%= form.select :restaurant_id, Restaurant.all.collect{|r| [r.restaurant_name,r.id]} %>
+  </div>
+
+  <div>
+    <%= form.label :customer_id %><br />
+    <%= form.select :customer_id, Customer.all.collect{|c| [c.name,c.id]} %>
+  </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>

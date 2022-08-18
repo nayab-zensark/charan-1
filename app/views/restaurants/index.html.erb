@@ -1,0 +1,37 @@
+<h1>List of Restaurants</h1>
+
+
+<table class="table w-100">
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Address</th>
+            <th>Type Of Restaurant</th>
+            <th>Destroy</th>
+        </tr>
+        <% @restaurants.each do |restaurant| %>
+            <tr>
+                <td>
+                  <%= link_to restaurant.restaurant_name, restaurant %>
+                </td>
+                <td>
+                  <%= restaurant.address %>
+                </td>
+                <td>
+                  <%= restaurant.restaurant_type %>
+                </td>
+                <td>
+                  <%= link_to "Destroy", restaurant_path(restaurant), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+
+<br/>
+<br/>
+
+<div>
+<%= link_to "Add restaurant", new_restaurant_path %>
+</div>

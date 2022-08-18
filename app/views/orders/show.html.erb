@@ -1,0 +1,15 @@
+<h1><%= @order.item_name %></h1>
+
+<p><%= @order.quantity %></p>
+
+<p><%= @order.price %></p>
+
+<p><%= @order.delivery_address %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_order_path(@order) %></li>
+  <li><%= link_to "Destroy", order_path(@order), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
