@@ -1,25 +1,31 @@
 <%= form_with model: @restaurant do |form| %>
-    <div>
-      <%= form.label :restaurant_name %><br>
-      <%= form.text_field :restaurant_name %><br>
+  <div class="card">
+  <div class="card-body">
+    <div class="mb-3">
+      <%= form.label :restaurant_name,{ class: "form-label"}%><br>
+      <%= form.text_field :restaurant_name,{ class: "form-control", placeholder: "Enter restaurant name" } %><br>
       <% @restaurant.errors.full_messages_for(:restaurant_name).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
   
-    <div>
-      <%= form.label :address %><br>
-      <%= form.text_area :address %><br>
+    <div class="mb-3">
+      <%= form.label :address, { class: "form-label"}%><br>
+      <%= form.text_area :address,{ class: "form-control", placeholder: "Enter a valid address" } %><br>
       <% @restaurant.errors.full_messages_for(:address).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
 
-    <div>
-    <%= form.label :restaurant_type %><br />
-    <%= form.select :restaurant_type, ['vegetarian', 'non-vegetarian']%>
+    <div class="mb-3">
+    <%= form.label :restaurant_type, { class: "form-label"} %><br />
+    <%= form.select :restaurant_type, ['vegetarian', 'non-vegetarian'],{ class: "form-control", placeholder: "Site Name" }%>
     </div>
     <div>
-      <%= form.submit %>
+      <%= form.submit "Submit", class: "btn btn-primary" %>
     </div>
+    </div>
+  </div>
+    
 <% end %>
+

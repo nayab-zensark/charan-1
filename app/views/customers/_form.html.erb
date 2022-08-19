@@ -1,37 +1,41 @@
 <%= form_with model: @customer do |form| %>
-    <div>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %><br>
+  <div class="card">
+  <div class="card-body">
+    <div class="mb-3">
+      <%= form.label :name,{ class: "form-label"} %><br>
+      <%= form.text_field :name,{ class: "form-control", placeholder: "Enter your name" } %><br>
       <% @customer.errors.full_messages_for(:name).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
   
-    <div>
-      <%= form.label :mobile_number %><br>
-      <%= form.text_field :mobile_number %><br>
+    <div class="mb-3">
+      <%= form.label :mobile_number,{ class: "form-label"} %><br>
+      <%= form.text_field :mobile_number,{ class: "form-control", placeholder: "Enter your valid mobile number" } %><br>
       <% @customer.errors.full_messages_for(:mobile_number).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
 
-    <div>
-      <%= form.label :email %><br>
-      <%= form.text_field :email %><br>
+    <div class="mb-3">
+      <%= form.label :email,{ class: "form-label"} %><br>
+      <%= form.text_field :email,{ class: "form-control", placeholder: "Enter your valid email address" } %><br>
       <% @customer.errors.full_messages_for(:email).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
 
-    <div>
-      <%= form.label :address %><br>
-      <%= form.text_area :address %><br>
+    <div class="mb-3">
+      <%= form.label :address,{ class: "form-label"} %><br>
+      <%= form.text_area :address,{ class: "form-control", placeholder: "Enter your address" } %><br>
       <% @customer.errors.full_messages_for(:address).each do |message| %>
-        <div><%= message %></div>
+        <div class="red"><%= message %></div>
       <% end %>
     </div>
   
     <div>
-      <%= form.submit %>
+      <%= form.submit "Submit", class: "btn btn-primary" %>
     </div>
+    </div>
+  </div>
 <% end %>

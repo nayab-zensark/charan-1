@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
 
     #validations
     validates :name, presence: true
-    validates :mobile_number, presence: true, numericality: true, uniqueness: true, length: { is: 6}
+    validates :mobile_number, presence: true, numericality: true, uniqueness: true, length: { is: 10}
     validates :email, presence: true, uniqueness: true
     validates :address, presence: true
 

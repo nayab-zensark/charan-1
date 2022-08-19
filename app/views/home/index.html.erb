@@ -1,9 +1,29 @@
-<div>
+<div class="home_main_container">
     <div class="main_heading_cont">
-    <h1 class="main_hedaing">HUNGRY BIRDS</h1>
+    <h1 class="main_heading">HUNGRY BIRDS</h1>
     </div>
-    <%= link_to "Restaurants",restaurants_path %><br/>
-    <%= link_to "Customers",customers_path %><br/>
-    <%= link_to "Place an order", new_order_path%>
-
-</div>
+    <div class="greet_msg_container">
+    <marquee class="greet_msg"></marquee>
+    </div>
+    <div class="container">
+    <marquee>
+        <h2 class="title">
+            <span class="title-word title-word-1">Hello! Welcome to Hungry Birds </span>
+            <span class="title-word title-word-2">Place your</span>
+            <span class="title-word title-word-3">order</span>
+            <span class="title-word title-word-4">fast</span>
+        </h2>
+    </marquee>
+    </div>
+    <div class="links_main_container">
+    <div class="restaurant_link_container">
+    <%= link_to "Restaurants", restaurants_path, class: 'css_class' %>
+    </div>
+    <div class="customer_link_container">
+    <%= link_to "Customers", customers_path, class: 'css_class' %>
+    </div>
+    <div class="order_link_container">
+    <%= link_to "Place Your Order", new_order_path, class: 'css_class' %>
+    </div>
+    </div>
+</div> 

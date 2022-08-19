@@ -1,10 +1,10 @@
-<h1><%= @order.item_name %></h1>
+<p>Item Name: <%= @order.item_name %></p>
 
-<p><%= @order.quantity %></p>
+<p>Qunatity: <%= @order.quantity %></p>
 
-<p><%= @order.price %></p>
+<p>Price: <%= @order.price %></p>
 
-<p><%= @order.delivery_address %></p>
+<p>Delivery Address: <%= @order.delivery_address %></p>
 
 <ul>
   <li><%= link_to "Edit", edit_order_path(@order) %></li>
@@ -12,4 +12,5 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
+  <li><%= link_to "Back", customers_path%></li>
 </ul>

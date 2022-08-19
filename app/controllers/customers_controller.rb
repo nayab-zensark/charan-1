@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
     def create
         @customer = Customer.new(customers_params)
         if @customer.save
+            flash[:success] = "You have created your profile successfully"
             redirect_to @customer
         else
           render :new, status: :unprocessable_entity
@@ -28,8 +29,10 @@ class CustomersController < ApplicationController
     
     def update
         @customer = Customer.find(params[:id])
-        if @customer.update(customer_params)
+        if @customer.update(customers_params)
+            
             redirect_to @customer
+            flash[:success] = "You have updated your profile succesfully"
         else
           render :edit, status: :unprocessable_entity
         end

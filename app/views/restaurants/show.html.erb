@@ -1,8 +1,11 @@
-<h1><%= @restaurant.restaurant_name %></h1>
 
-<p><%= @restaurant.address %></p>
+<h1 class="restaurant_main_heading">Restaurant Details</h1>
 
-<p><%= @restaurant.restaurant_type %></p>
+<p>Restaurant Name:<%= @restaurant.restaurant_name %></p>
+
+<p>Address: <%= @restaurant.address %></p>
+
+<p>Restaurant Type<%= @restaurant.restaurant_type %></p>
 <ul>
   <li><%= link_to "Edit", edit_restaurant_path(@restaurant) %></li>
   <li><%= link_to "Destroy", restaurant_path(@restaurant), data: {
@@ -12,6 +15,8 @@
 </ul>
 
 
+
+<h1 class="restaurant_main_heading">Restaurant Orders</h1>
 <table class="table w-100">
         <tr>
             <th>Item Name</th>
