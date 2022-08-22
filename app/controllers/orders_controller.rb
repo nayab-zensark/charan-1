@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
         @order = Order.new(order_params)
         if @order.save
             redirect_to @order
+            flash[:success] = "You have created your order successfully"
         else
           render :new, status: :unprocessable_entity
         end
@@ -27,8 +28,9 @@ class OrdersController < ApplicationController
     
     def update
         @order = Order.find(params[:id])
-        if @order.update(restaurant_params)
+        if @order.update(order_params)
             redirect_to @order
+            flash[:success] = "You have updated your order successfully"
         else
           render :edit, status: :unprocessable_entity
         end
@@ -38,6 +40,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @order.destroy
         redirect_to root_path, status: :see_other
+        flash[:success] = "You have deleted your order successfully"
     end
     
 

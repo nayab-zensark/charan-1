@@ -42,6 +42,7 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
         @customer.destroy
         redirect_to root_path, status: :see_other
+        flash[:success] = "You have deleted your profile successfully"
     end
     
 

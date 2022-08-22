@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.new(restaurant_params)
         if @restaurant.save
             redirect_to @restaurant
+            flash[:success] = "You have created your restaurant successfully"
         else
           render :new, status: :unprocessable_entity
         end
@@ -30,6 +31,8 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find(params[:id])
         if @restaurant.update(restaurant_params)
             redirect_to @restaurant
+            flash[:success] = "You have updated your restaurant successfully"
+
         else
           render :edit, status: :unprocessable_entity
         end
@@ -39,6 +42,7 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find(params[:id])
         @restaurant.destroy
         redirect_to restaurants_path
+        flash[:success] = "You have deleted your restaurant successfully"
     end
     
 
