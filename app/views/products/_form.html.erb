@@ -1,0 +1,38 @@
+<%= form_with model: @product do |form| %>
+ 
+      <div class="mb-3">
+        <%= form.label :product_name %><br>
+        <%= form.text_field :product_name %><br>
+        <% @product.errors.full_messages_for(:product_name).each do |message| %>
+          <div class="red"><%= message %></div>
+        <% end %>
+      </div>
+    
+      <div class="mb-3">
+        <%= form.label :product_description %><br>
+        <%= form.text_area :product_description %><br>
+        <% @product.errors.full_messages_for(:product_description).each do |message| %>
+          <div class="red"><%= message %></div>
+        <% end %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.label :price %><br>
+        <%= form.text_field :price %><br>
+        <% @product.errors.full_messages_for(:price).each do |message| %>
+          <div class="red"><%= message %></div>
+        <% end %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.label :brand %><br>
+        <%= form.text_field :brand %><br>
+        <% @product.errors.full_messages_for(:address).each do |message| %>
+          <div class="red"><%= message %></div>
+        <% end %>
+      </div>
+    
+      <div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+  <% end %>

@@ -1,0 +1,22 @@
+<%= form_with model: @tag do |form| %>
+ 
+    <div class="mb-3">
+      <%= form.label :tag %><br>
+      <%= form.text_field :tag %><br>
+      <% @tag.errors.full_messages_for(:tag).each do |message| %>
+        <div class="red"><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="mb-3">
+      <%= form.label :tag_description %><br>
+      <%= form.text_area :tag_description %><br>
+      <% @tag.errors.full_messages_for(:tag_description).each do |message| %>
+        <div class="red"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+<% end %>
