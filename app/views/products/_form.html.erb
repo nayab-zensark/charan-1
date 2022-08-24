@@ -31,8 +31,18 @@
           <div class="red"><%= message %></div>
         <% end %>
       </div>
-    
-      <div>
+      
+      <div class="mb-3">
+          <% for tag in @all_tags%>
+          <div>
+          <%= check_box_tag "product[tag_ids][]", tag.id,@product.tags.include?(tag)%>
+          <%= tag.tag%>
+          <%end%>
+          </div> 
+      </div>
+      
+      
+        <div>
         <%= form.submit "Submit", class: "btn btn-primary" %>
       </div>
   <% end %>

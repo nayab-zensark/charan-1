@@ -2,4 +2,8 @@
 <p><%= @tag.tag%><p/>
 <p><%= @tag.tag_description%></p>
 
-<%= link_to "back",tags_path%>
+<%= link_to "back",tags_path%><br/>
+
+<% @tagproducts.each do |tagproduct|%>
+    <%= tagproduct.product_name%><br/>
+<%end%>

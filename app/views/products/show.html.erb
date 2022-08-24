@@ -4,4 +4,8 @@
 <p><%=@product.price %></p>
 <p><%=@product.brand %></p>
 
-<%= link_to "back", products_path %>
+<%= link_to "back", products_path %><br/>
+
+<% @producttags.each do |producttag|%>
+    <%= link_to producttag.tag, producttag%><br/>
+<%end%>

@@ -1,4 +1,6 @@
 <h2>List of tags</h2>
 <% @tags.each do |tag|%>
-    <%= link_to tag.tag, tag%>
+    <p><%= link_to tag.tag, tag%></p>
 <% end %>
+
+<%= link_to "new tag",new_tag_path%>

@@ -1,3 +1,11 @@
+<h1>List of products</h1>
 <% @products.each do |product| %>
-    <%= link_to product.product_name,product %>
+    <p>product</p>
+    <p><%= link_to product.product_name,product %></p>
+    <p>tags</p>
+    <% product.tags.each do |producttag|%>
+        <%= link_to producttag.tag, producttag%>
+    <%end%>
+    <p>-----------</p>
 <% end %>
+<%= link_to "New product", new_product_path%>

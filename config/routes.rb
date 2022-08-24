@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root "home#index"
   resources :products
   resources :tags
-  resources :product_tags
+
 end

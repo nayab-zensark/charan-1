@@ -1,14 +1,18 @@
 class ProductsController < ApplicationController
     def index
         @products = Product.all
+    
     end
     
     def show
         @product = Product.find(params[:id])
+        @producttags = Product.find(params[:id]).tags
     end
     
     def new
         @product = Product.new
+        @all_tags = Tag.all
+        @product_tag = @product.product_tags.build
     end
     
     def create
@@ -24,6 +28,7 @@ class ProductsController < ApplicationController
 
     def edit
         @product = Product.find(params[:id])
+        @all_tags = Tag.all
     end
 
     
@@ -47,6 +52,6 @@ class ProductsController < ApplicationController
 
     private
     def product_params
-        params.require(:product).permit(:product_name,:product_description,:brand,:price)
+        params.require(:product).permit(:product_name,:product_description,:brand,:price,tag_ids:[])
     end
 end

@@ -5,6 +5,7 @@ class TagsController < ApplicationController
     
     def show
         @tag = Tag.find(params[:id])
+        @tagproducts=Tag.find(params[:id]).products
     end
     
     def new
