@@ -1,9 +1,32 @@
-<h2>Details of <%= @tag.tag%></h2>
-<p><%= @tag.tag%><p/>
-<p><%= @tag.tag_description%></p>
+<h2 class="tag-index-main-heading">Details of <%= @tag.tag%></h2>
+<p class="tag-show-heading">Tag Name: <span class="tag-show-span-heading"><%= @tag.tag.capitalize%></span><p/>
+<p class="tag-show-heading">Tag Description: <span class="tag-show-span-heading"> <%= @tag.tag_description.capitalize%></p>
 
-<%= link_to "back",tags_path%><br/>
+<table class="table w-100">
+  <tr>
+    <th>Tag Name</th>
+    <th>Description</th>
+    <th>Brand</th>
+    <th>Price</th>
+  </tr>
+  <% @tagproducts.each do |tagproduct| %>
+    <tr>
+      <td>
+        <p><%= tagproduct.product_name.capitalize%></p>
+      </td>
+      <td>
+        <%= tagproduct.product_description.capitalize %>
+      </td>
+      <td>
+        <%= tagproduct.brand.capitalize %>
+      </td>
+      <td>
+        <%= tagproduct.price %>
+      </td>
+    </tr>
+  <% end %>
+</table>
 
-<% @tagproducts.each do |tagproduct|%>
-    <%= tagproduct.product_name%><br/>
-<%end%>
+<div class="tag-button-container">
+<%= button_to "back",tags_path,method: :get,class:"btn btn-warning"%><br/>
+</div>

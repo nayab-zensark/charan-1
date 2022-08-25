@@ -15,6 +15,16 @@
  */
  @import "bootstrap";
 
+
+ table, th, td {
+   border: 2px solid rgb(146, 28, 8) !important; 
+   border-collapse: collapse;
+   padding: 20px;
+   margin-left: 30px;
+   margin-top: 30px;
+   width:20vw;
+   text-align: center;
+ }
  .nav_image{
     height: 40px;
     border-radius: 20px;
@@ -62,4 +72,78 @@
  .button1{
     margin-left: 70px;
  }
- 
+ .product-index-main-container{
+   background: rgb(238,174,202);
+   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+ }
+ .product-index-container{
+   background-color: white;
+   padding-left: 30px;
+   border-radius: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin-left: 8px;
+   margin-right: 8px;
+ }
+ .product-link{
+   text-decoration: none;
+   color: brown;
+ }
+ .tags-link{
+   text-decoration: none;
+   font-size: larger;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+ .product-heading{
+   font-weight: 400;
+   font-size: 30px;
+ }
+ .product-details{
+   font-size: 20px;
+ }
+ .product-index-buttons-container{
+   display: flex;
+   flex-direction: row;
+   justify-content: left;
+ }
+ .new-product-button-container{
+   padding-left: 70px;
+   padding-top: 20px;
+   padding-bottom: 30px;
+ }
+ .product-index-main-heading{
+   color: #d01254;
+   margin-left: 10px;
+   padding-top: 10px;
+   font-weight: 300;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ }
+.tag-index-main-heading{
+   color: rgb(241, 55, 55);
+  margin-left: 20px;
+  font-size: 40px;
+  margin-top: 10px;
+}
+.tag-button-container{
+  margin-left: 30px;
+}
+.tag-new-form-container{
+  margin-left: 40vw;
+  color: dodgerblue;
+}
+.tag-new-heading{
+  color: rgb(230, 18, 18);
+  margin-left: 40vw;
+  margin-top: 60px;
+  font-size: 35px;
+  font-weight: 400;
+}
+.tag-show-heading{
+  font-size: 25px;
+  margin-left: 20px;
+  font-weight: 400;
+}
+.tag-show-span-heading{
+  color: mediumslateblue;
+  font-family: 'Times New Roman', Times, serif;
+}

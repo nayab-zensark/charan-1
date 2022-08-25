@@ -1,11 +1,24 @@
-<h1>List of products</h1>
+<div class="product-index-main-container">
+<h1 class="product-index-main-heading">List of products:</h1>
 <% @products.each do |product| %>
-    <p>product</p>
-    <p><%= link_to product.product_name,product %></p>
-    <p>tags</p>
+    <div class="product-index-container">
+    <h1 class="product-heading"><%= link_to product.product_name.capitalize,product, class: 'product-link' %></h1>
+    <p class="product-details"><%= product.product_description.capitalize%></p>
+    <p class="product-details">Rs=<%= product.price%></p>
+    <p class="product-details"><%= product.brand.capitalize%></p>
+    <div class="product-index-buttons-container">
+    <%= button_to "Edit", edit_product_path(product) , method: :get,class:"btn btn-primary",style:"margin-right: 20px;"%>
+    <%= link_to "Destroy", product_path(product), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, method: :delete,class:"btn btn-danger"%>
+    </div></br>
     <% product.tags.each do |producttag|%>
-        <%= link_to producttag.tag, producttag%>
+        <%= link_to producttag.tag.capitalize, producttag, class:'tags-link'%> 
     <%end%>
-    <p>-----------</p>
+    </div><br/>
 <% end %>
-<%= link_to "New product", new_product_path%>
+<div class="new-product-button-container">
+<%= button_to "New product", new_product_path,method: :get,class:"btn btn-success"%>
+</div>
+</div>

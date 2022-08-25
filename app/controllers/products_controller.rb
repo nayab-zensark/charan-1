@@ -12,16 +12,14 @@ class ProductsController < ApplicationController
     def new
         @product = Product.new
         @all_tags = Tag.all
-        @product_tag = @product.product_tags.build
     end
     
     def create
         @product = Product.new(product_params)
         if @product.save
             flash[:success] = "Product has been created succesfully"
-            redirect_to @product
+            redirect_to products_path
         else
-
           render :new, status: :unprocessable_entity
         end
     end
@@ -35,7 +33,7 @@ class ProductsController < ApplicationController
     def update
         @product = Product.find(params[:id])
         if @product.update(product_params)
-            redirect_to @product
+            redirect_to products_path
             flash[:success] = "Product has been updated succesfully"
         else
           render :edit, status: :unprocessable_entity
@@ -45,7 +43,7 @@ class ProductsController < ApplicationController
     def destroy
         @product = Product.find(params[:id])
         @product.destroy
-        redirect_to root_path, status: :see_other
+        redirect_to products_path, status: :see_other
         flash[:success] = "Product has been destroyed succesfully"
     end
     
