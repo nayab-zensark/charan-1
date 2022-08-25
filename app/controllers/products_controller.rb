@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
             redirect_to products_path
         else
           render :new, status: :unprocessable_entity
+          flash[:alert] = "Product not created,Try again"
         end
     end
 
@@ -37,6 +38,7 @@ class ProductsController < ApplicationController
             flash[:success] = "Product has been updated succesfully"
         else
           render :edit, status: :unprocessable_entity
+          flash[:alert] = "Product not updated,Try again"
         end
     end
 

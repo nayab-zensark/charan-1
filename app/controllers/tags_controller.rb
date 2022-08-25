@@ -18,7 +18,8 @@ class TagsController < ApplicationController
             flash[:success] = "You have created your tag successfully"
             redirect_to @tag
         else
-          render :new, status: :unprocessable_entity
+          render :new, status: :unprocessable_entity\
+          flash[:alert] = "Tag not created,Try again"
         end
     end
 
@@ -34,6 +35,7 @@ class TagsController < ApplicationController
             flash[:success] = "You have updated your tag succesfully"
         else
           render :edit, status: :unprocessable_entity
+          flash[:alert] = "Tag not updated,Try again"
         end
     end
 
